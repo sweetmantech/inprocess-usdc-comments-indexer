@@ -1,0 +1,11 @@
+type ERC20Minter_ERC20RewardsDeposit {
+  id: ID!
+  collection: String!
+  currency: String!
+  tokenId: BigInt!
+  recipient: String!
+  spender: String!
+  amount: String!
+  transactionHash: String!
+  blockNumber: Int!
+}
