@@ -1,17 +1,24 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
-name: inprocess-usdc-purchase-indexer
+name: inprocess-comments-indexer
 contracts:
   - name: ERC20Minter
     handler: src/EventHandlers.ts
     events:
-      - event: ERC20RewardsDeposit(address indexed createReferral, address indexed mintReferral, address indexed firstMinter, address zora, address collection, address currency, uint256 tokenId, uint256 createReferralReward, uint256 mintReferralReward, uint256 firstMinterReward, uint256 zoraReward)
+      - event: MintComment(address indexed sender, address indexed tokenContract, uint256 indexed tokenId, uint256 quantity, string comment)
         field_selection:
           transaction_fields:
             - hash
 
 networks:
+  - id: 84532
+    start_block: 0
+    contracts:
+      - name: ERC20Minter
+        address:
+          - 0x4538d7a07227d21597fb851a14057f00d15b4d5e
+
   - id: 8453
-    start_block: 28941413
+    start_block: 0
     contracts:
       - name: ERC20Minter
         address:
