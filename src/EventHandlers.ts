@@ -7,6 +7,8 @@ ERC20Minter.MintComment.handler(async ({ event, context }) => {
   const entity: ERC20Minter_MintComment = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     sender: event.params.sender,
+    tokenContract: event.params.tokenContract,
+    tokenId: event.params.tokenId.toString(),
     comment: event.params.comment,
     transactionHash: event.transaction.hash,
     timestamp: event.block.timestamp,
