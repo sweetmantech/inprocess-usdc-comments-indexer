@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
-name: inprocess-usdc-comments-indexer
+name: inprocess-comments-indexer
 contracts:
   - name: ERC20Minter
     handler: src/EventHandlers.ts
@@ -8,18 +8,21 @@ contracts:
         field_selection:
           transaction_fields:
             - hash
-networks:
-  - id: 8453
-    start_block: 0
-    contracts:
-      - name: ERC20Minter
-        address: 0xE27d9Dc88dAB82ACa3ebC49895c663C6a0CfA014
 
+networks:
   - id: 84532
     start_block: 0
     contracts:
       - name: ERC20Minter
-        address: 0x4538d7a07227d21597fb851a14057f00d15b4d5e
+        address:
+          - 0x4538d7a07227d21597fb851a14057f00d15b4d5e
+
+  - id: 8453
+    start_block: 0
+    contracts:
+      - name: ERC20Minter
+        address:
+          - 0xE27d9Dc88dAB82ACa3ebC49895c663C6a0CfA014
 
 unordered_multichain_mode: true
 preload_handlers: true
